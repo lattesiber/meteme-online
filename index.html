@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metme Online</title>
+  <style>
+    body {
+      font-family: Segoe UI, Arial, sans-serif;
+      background: #e5e5e5;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      font-weight: 600;
+      color: #222;
+    }
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 520px;
+      margin: auto;
+    }
+    .project-box {
+      background: #ffffff;
+      border-radius: 0px; /* Windows 10 düz köşe */
+      padding: 18px;
+      border: 1px solid #d0d0d0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .project-title {
+      font-size: 17px;
+      font-weight: 500;
+      color: #111;
+    }
+    .download-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 0; /* Kare düğme */
+      background: #0078d7; /* Windows 10 mavi */
+      color: white;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.15s;
+    }
+    .download-btn:hover {
+      background: #005a9e; /* Windows hover rengi */
+    }
+  </style>
+</head>
+<body>
+  <h1>Metme Online</h1>
+  <div class="project-list" id="projectList">
+    <!-- Proje kutuları buraya eklenecek -->
+  </div>
+
+  <script>
+// Örnek proje listesi
+const projects = [
+{
+name: "Test Projesi",
+file: "projeler/testprojesi.meteme.rar"
+}
+];
+
+
+const list = document.getElementById("projectList");
+
+
+projects.forEach(p => {
+const box = document.createElement("div");
+box.className = "project-box";
+
+
+box.innerHTML = `
+<span class="project-title">${p.name}</span>
+<button class="download-btn" onclick="window.location.href='${p.file}'">Projeyi İndir</button>
+`;
+
+
+list.appendChild(box);
+});
+</script>
+</body>
+</html>
